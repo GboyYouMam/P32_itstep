@@ -18,8 +18,8 @@ public class NotesController : Controller
     
     // GET: Notes
     [HttpGet]
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
-        return View(_context.Notes.Include(n => n.Tags).OrderByDescending(n => n.CreatedAt).ToList());
+        return View(_context.Notes.ToList());
     }
 }

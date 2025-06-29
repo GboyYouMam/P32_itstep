@@ -19,4 +19,17 @@ public class NoteMapper
                 .ToList()
         };
     }
+    
+    public static NoteViewModel MapToViewModel(NoteEntity entity)
+    {
+        if (entity == null) throw new ArgumentNullException(nameof(entity));
+
+        return new NoteViewModel
+        {
+            Title = entity.Title,
+            Content = entity.Content,
+            CreatedAt = entity.CreatedAt,
+            TagsId = entity.Tags.Select(tag => tag.Id).ToList()
+        };
+    }
 }
