@@ -1,0 +1,28 @@
+﻿@using WebApplication1.Entities
+@model IEnumerable<WebApplication1.Models.NoteViewModel>
+
+<div>
+    <h2>Notes</h2>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                @*<th>Tags</th>*@
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var note in Model)
+        {
+            <tr>
+                <td>@note.Title</td>
+                <td>@note.Content</td>
+                @*<td>@string.Join(", ", note.TagsId.Select(t => t.Name))</td>*@
+                <td>@note.CreatedAt.ToString("g")</td>
+            </tr>
+        }
+        </tbody>
+        </table>
+</div>
