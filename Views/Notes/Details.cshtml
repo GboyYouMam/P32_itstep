@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Entities.NoteEntity
+@{
+    ViewData["Title"] = "Note Detailed View";
+}
+
+<h2>Note Details</h2>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit Note!</a>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Title</dt>
+        <dd class="col-sm-10">@Model.Title</dd>
+
+        <dt class="col-sm-2">Content</dt>
+        <dd class="col-sm-10">@Model.Content</dd>
+
+        <dt class="col-sm-2">Created At</dt>
+        <dd class="col-sm-10">@Model.CreatedAt.ToString("g")</dd>
+
+        <dt class="col-sm-2">Tags</dt>
+        <dd class="col-sm-10">
+            @foreach (var tag in Model.Tags)
+            {
+                <span class="badge bg-secondary">@tag.Name</span>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to Notes</a>
+</div>
+
