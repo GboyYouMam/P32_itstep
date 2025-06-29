@@ -2,14 +2,14 @@
 @model WebApplication1.Models.NoteViewModel
 @{
     ViewData["Title"] = "Create Note";
-    string GetDescription(string propertyName)
-    {
-        var prop = typeof(WebApplication1.Models.NoteViewModel).GetProperty(propertyName);
-        var attr = prop.GetCustomAttributes(typeof(DisplayAttribute), false).FirstOrDefault() as DisplayAttribute;
-        return attr?.Description;
-    }
-    
-    Layout = "_Layout";
+@*     string GetDescription(string propertyName) *@
+@*     { *@
+@*         var prop = typeof(WebApplication1.Models.NoteViewModel).GetProperty(propertyName); *@
+@*         var attr = prop.GetCustomAttributes(typeof(DisplayAttribute), false).FirstOrDefault() as DisplayAttribute; *@
+@*         return attr?.Description; *@
+@*     } *@
+@*      *@
+@*     Layout = "_Layout"; *@
 }
 
 <h2>Create Note</h2>
@@ -18,24 +18,25 @@
     <div class="col-md-4">
         <form asp-action="Create" method="post">
             <div>
-                <label asp-for="Title"></label><br/>
-                <span class="field-description">@GetDescription("Name")</span>><br/>
+                <label asp-for="Title">Title</label><br/>
+                @* <span class="field-description">@GetDescription("Name")</span>><br/> *@
                 <input asp-for="Title" /><br/>
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div>
-                <label asp-for="Content"></label><br/>
-                <span class="field-description">@GetDescription("Content")</span><br/>
+                <label asp-for="Content">Content</label><br/>
+                @* <span class="field-description">@GetDescription("Content")</span><br/> *@
                 <textarea asp-for="Content" rows="5"></textarea><br/>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div>
                 <label asp-for="TagsId"></label><br/>
-                <span class="field-description">@GetDescription("Tags")</span><br/>
-                <select ></select>
+                @* <span class="field-description">@GetDescription("Tags")</span><br/> *@
+                <select asp-for="TagsId" asp-items="ViewBag.Tags" multiple="multiple" class="form-control"></select>
                 <span asp-validation-for="TagsId" class="text-danger"></span>
             </div>
             <button type="submit">Create Note</button>
         </form>
+        <a asp-action="Index">Back to Notes</a>
     </div>
 </div>

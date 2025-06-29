@@ -3,14 +3,15 @@
 
 <div>
     <h2>Notes</h2>
+    <a asp-action="Create">Create new!</a>
     
     <table class="table">
         <thead>
             <tr>
                 <th>Title</th>
                 <th>Content</th>
-                @*<th>Tags</th>*@
                 <th>Created At</th>
+                <th>Tags</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,10 @@
                 <td>@note.Title</td>
                 <td>@note.Content</td>
                 <td>@note.CreatedAt.ToString("g")</td>
+                @foreach(var tag in note.Tags)
+                {
+                    <td>@tag.Name</td>
+                }
             </tr>
         }
         </tbody>
