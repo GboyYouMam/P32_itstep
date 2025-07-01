@@ -95,6 +95,9 @@ public class NotesController : Controller
         {
             return NotFound();
         }
+        var allTags = await _context.Tags.ToListAsync();
+        ViewBag.Tags = new SelectList(allTags, "Id", "Name");
+        
         var note = await FindNoteById(id);
         
         return View(note);
@@ -122,7 +125,7 @@ public class NotesController : Controller
                 
                 note.Title = noteEnt.Title;
                 note.Content = noteEnt.Content;
-                // note.Tags = await _context.Tags.Where(t => noteEnt.Tags.Any(ta => ta.Id == t.Id)).ToListAsync();
+                note.Tags = _context.Tags.Where(t => noteEnt.Tags.Contains(t)).ToList();
                 
                 _context.Update(note);
                 await _context.SaveChangesAsync();

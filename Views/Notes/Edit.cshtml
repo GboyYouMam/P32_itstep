@@ -25,7 +25,7 @@
             </div>
             <div>
                 <label asp-for="Tags" class="control-label"></label>
-                <select asp-for="Tags" asp-items="@ViewBag.Tags" multiple="multiple" class="form-control"></select>
+                 <select asp-for="Tags" asp-items="@((SelectList)ViewData["Tags"])" multiple="multiple" class="form-control"></select>
                 <span asp-validation-for="Tags" class="text-danger"></span>
             </div>
             <div>

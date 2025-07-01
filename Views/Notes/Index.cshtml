@@ -9,7 +9,6 @@
         <thead>
         <tr>
             <th>Title</th>
-            <th>Content</th>
             <th>Created At</th>
             <th>Tags</th>
         </tr>
@@ -19,7 +18,6 @@
         {
             <tr>
                 <td>@note.Title</td>
-                <td>@note.Content</td>
                 <td>@note.CreatedAt.ToString("g")</td>
                 @foreach(var tag in note.Tags)
                 {
