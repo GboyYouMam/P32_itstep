@@ -5,6 +5,22 @@ namespace WebApplication1.Mappers;
 
 public class NoteMapper
 {
+    
+    public static NoteEntity MapToEntity(NoteEntity entity, NoteViewModel model, List<TagEntity> tags)
+    {
+        if (model == null) throw new ArgumentNullException(nameof(model));
+
+        if (entity == null) throw new ArgumentNullException(nameof(entity));
+        
+        entity.Title = model.Title;
+        entity.Content = model.Content;
+        
+        entity.Tags = entity.Tags ?? new List<TagEntity>();
+        entity.Tags.Clear();
+        entity.Tags = tags;
+        
+        return entity;
+    }
     public static NoteEntity MapToEntity(NoteViewModel model, IEnumerable<TagEntity> tags)
     {
         if (model == null) throw new ArgumentNullException(nameof(model));
@@ -13,10 +29,7 @@ public class NoteMapper
         {
             Title = model.Title,
             Content = model.Content,
-            CreatedAt = model.CreatedAt,
-            Tags = tags
-                .Where(tag => model.TagsId.Contains(tag.Id))
-                .ToList()
+            Tags = tags.Where(tag => model.TagsId.Contains(tag.Id)).ToList(),
         };
     }
     
@@ -28,7 +41,6 @@ public class NoteMapper
         {
             Title = entity.Title,
             Content = entity.Content,
-            CreatedAt = entity.CreatedAt,
             TagsId = entity.Tags.Select(tag => tag.Id).ToList()
         };
     }

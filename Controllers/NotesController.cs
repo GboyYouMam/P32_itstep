@@ -96,23 +96,24 @@ public class NotesController : Controller
             return NotFound();
         }
         var allTags = await _context.Tags.ToListAsync();
-        ViewBag.Tags = new SelectList(allTags, "Id", "Name");
         
         var note = await FindNoteById(id);
         
-        return View(note);
+        if (note == null)
+        {
+            return NotFound();
+        }
+        
+        ViewBag.Tags = new MultiSelectList(allTags, "Id", "Name", note?.Tags.Select(t => t.Id).ToList());
+        
+        return View(Mappers.NoteMapper.MapToViewModel(note));
     }
     
     // POST: Notes/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,TagsId")] NoteEntity noteEnt)
+    public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Content,TagsId")] NoteViewModel noteVM)
     {
-        if (id != noteEnt.Id)
-        {
-            return NotFound();
-        }
-        
         if (ModelState.IsValid)
         {
             try
@@ -123,16 +124,19 @@ public class NotesController : Controller
                     return NotFound();
                 }
                 
-                note.Title = noteEnt.Title;
-                note.Content = noteEnt.Content;
-                note.Tags = _context.Tags.Where(t => noteEnt.Tags.Contains(t)).ToList();
+                note = NoteMapper.MapToEntity(
+                    note, 
+                    noteVM, 
+                    await _context.Tags
+                        .Where(t => noteVM.TagsId.Contains(t.Id))
+                        .ToListAsync());
                 
                 _context.Update(note);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!await NoteExists(noteEnt.Id))
+                if (!await NoteExists(id))
                 {
                     return NotFound();
                 }
@@ -141,7 +145,40 @@ public class NotesController : Controller
             return RedirectToAction(nameof(Index));
         }
         
-        ViewBag.Tags = new SelectList(_context.Tags, "Id", "Name", noteEnt.Tags);
-        return View(noteEnt);
+        ViewBag.Tags = new SelectList(_context.Tags, "Id", "Name", noteVM.TagsId);
+        return View(noteVM);
+    }
+    
+    // GET: Notes/Delete/5
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null)
+        {
+            return NotFound();
+        }
+        
+        var note = await FindNoteById(id);
+        if (note == null)
+        {
+            return NotFound();
+        }
+        
+        return View(note);
+    }
+    
+    // POST: Notes/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        var note = await FindNoteById(id);
+        if (note == null)
+        {
+            return NotFound();
+        }
+        
+        _context.Notes.Remove(note);
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
     }
 }

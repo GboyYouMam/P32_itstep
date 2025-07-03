@@ -14,8 +14,6 @@ public class NoteViewModel
     [Display(Name = "Content of the Note", Description = "Enter the content of your note (up to 300 characters).")]
     public string Content { get; set; }
     
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
-    
     [Required(ErrorMessage = "Tags are required.")]
     [Display(Name = "Tags", Description = "Add tags to categorize your note.")]
     public List<int> TagsId { get; set; } = new List<int>();
