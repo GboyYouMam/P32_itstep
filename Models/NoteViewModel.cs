@@ -4,6 +4,8 @@ namespace WebApplication1.Models;
 
 public class NoteViewModel
 {
+    public int Id { get; set; }
+
     [Required(ErrorMessage = "Title is required.")]
     [StringLength(100, ErrorMessage = "Title cannot exceed 100 characters.")]
     [Display(Name = "Note Title", Description = "Enter your full name (2-50 characters).")]

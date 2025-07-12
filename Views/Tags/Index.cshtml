@@ -1,0 +1,29 @@
+@model IEnumerable<WebApplication1.Models.TagViewModel>
+
+@{
+    ViewData["Title"] = "Tags";
+}
+
+<div>
+    <h2>Tags</h2>
+    
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name of Tag</th>
+            <th>Count of use</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var tag in Model)
+        {
+            <tr>
+                <td>@tag.Name</td>
+                <td>@tag.NotesId.Count</td>
+                <td><a asp-action="Details" asp-route-id="@tag.Id">Details</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

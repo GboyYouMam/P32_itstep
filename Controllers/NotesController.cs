@@ -23,7 +23,26 @@ public class NotesController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        return View(_context.Notes.Include(n => n.Tags).ToList());
+        var notes = _context.Notes.Include(n => n.Tags).ToList();
+        var viewModels = notes.Select(n => NoteMapper.MapToViewModel(n)).ToList();
+        return View(viewModels);
+    }
+    
+    public async Task<List<TagEntity>> GetAllTagsAsync()
+    {
+        return await _context.Tags.ToListAsync();
+    }
+    
+    public List<TagEntity> GetAllTags()
+    {
+        return _context.Tags.ToList();
+    }
+
+
+    public List<TagEntity> GetTagsFromNote(NoteViewModel note)
+    {
+        var allTags = GetAllTags();
+        return allTags.Where(t => note.TagsId.Contains(t.Id)).ToList();
     }
     
     // GET: Notes/Create
@@ -75,7 +94,7 @@ public class NotesController : Controller
         return note;
     }
     
-    //GET: Notes/Edit/5
+    // GET: Notes/Details/5
     public async Task<IActionResult> Details(int? id)
     {
         if (!await NoteExists(id))
@@ -83,9 +102,12 @@ public class NotesController : Controller
             _logger.LogWarning("Note with ID {Id} does not exist.", id);
             return NotFound();
         }
-        var note = await FindNoteById(id);
+        var allTags = await GetAllTagsAsync();
         
-        return View(note);
+        var note = await FindNoteById(id);
+        ViewBag.Tags = note?.Tags.ToList();
+        
+        return View(Mappers.NoteMapper.MapToViewModel(note));
     }
     
     // GET: Notes/Edit/5
@@ -95,7 +117,7 @@ public class NotesController : Controller
         {
             return NotFound();
         }
-        var allTags = await _context.Tags.ToListAsync();
+        var allTags = await GetAllTagsAsync();
         
         var note = await FindNoteById(id);
         
@@ -162,8 +184,10 @@ public class NotesController : Controller
         {
             return NotFound();
         }
+
+        ViewBag.Tags = note?.Tags.ToList();
         
-        return View(note);
+        return View(Mappers.NoteMapper.MapToViewModel(note));
     }
     
     // POST: Notes/Delete/5

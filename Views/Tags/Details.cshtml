@@ -1,0 +1,37 @@
+@model WebApplication1.Models.TagViewModel
+@using WebApplication1.Controllers
+
+@{
+    ViewData["Title"] = $"Detailed page for {@Model.Name}";
+}
+
+<h2>Tag Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Tag</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+
+        <dt class="col-sm-2">Notes</dt>
+        <dd class="col-sm-10">
+            @if (ViewBag.Notes != null)
+            {
+                foreach (var note in ViewBag.Notes)
+                {
+                    <span class="badge bg-secondary">
+                        @note.Title
+                        <a asp-controller="Notes" asp-action="Details" asp-route-id="@note.Id">Details</a>
+                    </span>
+                }
+            }
+            else
+            {
+                <span>No notes found.</span>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to Tags</a>
+</div>

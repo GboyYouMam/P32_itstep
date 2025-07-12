@@ -14,9 +14,6 @@ public class NoteMapper
         
         entity.Title = model.Title;
         entity.Content = model.Content;
-        
-        entity.Tags = entity.Tags ?? new List<TagEntity>();
-        entity.Tags.Clear();
         entity.Tags = tags;
         
         return entity;
@@ -27,6 +24,7 @@ public class NoteMapper
 
         return new NoteEntity
         {
+            Id = model.Id,
             Title = model.Title,
             Content = model.Content,
             Tags = tags.Where(tag => model.TagsId.Contains(tag.Id)).ToList(),
@@ -39,6 +37,7 @@ public class NoteMapper
 
         return new NoteViewModel
         {
+            Id = entity.Id,
             Title = entity.Title,
             Content = entity.Content,
             TagsId = entity.Tags.Select(tag => tag.Id).ToList()

@@ -1,5 +1,6 @@
-﻿@using WebApplication1.Entities
-@model IEnumerable<WebApplication1.Entities.NoteEntity>
+﻿@using WebApplication1.Controllers
+@using WebApplication1.Models
+@model IEnumerable<WebApplication1.Models.NoteViewModel>
 
 <div>
     <h2>Notes</h2>
@@ -9,8 +10,7 @@
         <thead>
         <tr>
             <th>Title</th>
-            <th>Created At</th>
-            <th>Tags</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -18,11 +18,7 @@
         {
             <tr>
                 <td>@note.Title</td>
-                <td>@note.CreatedAt.ToString("g")</td>
-                @foreach(var tag in note.Tags)
-                {
-                    <td class="badge bg-secondary m-2 text-white">@tag.Name</td>
-                }
+                
                 <td><a asp-action="Details" asp-route-id="@note.Id">Detailed</a></td>
             </tr>
         }
