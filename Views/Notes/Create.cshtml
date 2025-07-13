@@ -11,19 +11,16 @@
         <form asp-action="Create" method="post">
             <div>
                 <label asp-for="Title">Title</label><br/>
-                @* <span class="field-description">@GetDescription("Name")</span>><br/> *@
                 <input asp-for="Title" /><br/>
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div>
                 <label asp-for="Content">Content</label><br/>
-                @* <span class="field-description">@GetDescription("Content")</span><br/> *@
                 <textarea asp-for="Content" rows="5"></textarea><br/>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div>
                 <label asp-for="TagsId"></label><br/>
-                @* <span class="field-description">@GetDescription("Tags")</span><br/> *@
                 <select asp-for="TagsId" asp-items="ViewBag.Tags" multiple="multiple" class="form-control"></select>
                 <span asp-validation-for="TagsId" class="text-danger"></span>
             </div>

@@ -1,0 +1,23 @@
+@model WebApplication1.Models.TagViewModel
+
+@{
+    ViewData["Title"] = "Create Tag!";
+}
+
+<h2>Create Tag</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div>
+                <label asp-for="Name">Name</label><br/>
+                <input asp-for="Name" /><br/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <button type="submit">Create Tag</button>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to Tags</a>
+</div>

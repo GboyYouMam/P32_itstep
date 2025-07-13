@@ -16,4 +16,16 @@ public class TagMapper
             NotesId = tagEntity.Notes.Select(n => n.Id).ToList()
         };
     }
+    
+    public static TagEntity MapToEntity(TagViewModel tagViewModel, List<NoteEntity> notes)
+    {
+        if (tagViewModel == null) return null;
+
+        return new TagEntity
+        {
+            Id = tagViewModel.Id,
+            Name = tagViewModel.Name,
+            Notes = notes.Where(note => tagViewModel.NotesId.Contains(note.Id)).ToList()
+        };
+    }
 }
