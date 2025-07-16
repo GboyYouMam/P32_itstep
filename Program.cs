@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using WebApplication1.Db;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,12 +9,17 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SqLiteDbContext>(options =>
     options.UseSqlite("Data Source=notes.db"));
 
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>() // Добавлено для поддержки ролей
+    .AddEntityFrameworkStores<SqLiteDbContext>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<SqLiteDbContext>();
+    db.Database.Migrate();
     db.Database.EnsureCreated();
 }
 
@@ -23,6 +29,7 @@ using (var scope = app.Services.CreateScope())
     var context = scope.ServiceProvider.GetRequiredService<SqLiteDbContext>();
     DbInitializer.Seed(context);
 }
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
