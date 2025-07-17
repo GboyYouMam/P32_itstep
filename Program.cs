@@ -40,12 +40,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
+app.UseStaticFiles(); // Забув?
 
 app.UseRouting();
-app.MapStaticAssets();
+
+app.UseAuthentication();    // <--- Обов'язково
+app.UseAuthorization();
+
+app.MapRazorPages();
 app.MapControllerRoute(
         name: "default",
         pattern: "{controller=Home}/{action=Index}/{id?}")

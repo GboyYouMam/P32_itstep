@@ -4561,19 +4561,19 @@
     ]
   },
   "packageFolders": {
-    "/home/jes95us/.nuget/packages/": {}
+    "C:\\Users\\kozah\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/jes95us/RiderProjects/P32_itstep/WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\kozah\\RiderProjects\\P32_itstep\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "/home/jes95us/RiderProjects/P32_itstep/WebApplication1.csproj",
-      "packagesPath": "/home/jes95us/.nuget/packages/",
-      "outputPath": "/home/jes95us/RiderProjects/P32_itstep/obj/",
+      "projectPath": "C:\\Users\\kozah\\RiderProjects\\P32_itstep\\WebApplication1.csproj",
+      "packagesPath": "C:\\Users\\kozah\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\kozah\\RiderProjects\\P32_itstep\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/jes95us/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\kozah\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -4649,7 +4649,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/jes95us/.dotnet/sdk/9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
