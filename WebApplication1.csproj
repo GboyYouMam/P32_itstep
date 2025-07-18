@@ -18,4 +18,8 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.6" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Profile\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

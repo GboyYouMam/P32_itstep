@@ -4,7 +4,7 @@ using WebApplication1.Entities;
 namespace WebApplication1.Db;
 using Microsoft.EntityFrameworkCore;
 
-public class SqLiteDbContext : IdentityDbContext
+public class SqLiteDbContext : IdentityDbContext<MyIdentityUserModel>
 {
     public DbSet<TagEntity> Tags { get; set; }
     public DbSet<NoteEntity> Notes { get; set; }

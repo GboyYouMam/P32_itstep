@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using WebApplication1.Db;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SqLiteDbContext>(options =>
     options.UseSqlite("Data Source=notes.db"));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<MyIdentityUserModel>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>() // Добавлено для поддержки ролей
     .AddEntityFrameworkStores<SqLiteDbContext>();
 
