@@ -27,9 +27,12 @@ using (var scope = app.Services.CreateScope())
 // Инициализация базы данных с начальными данными
 using (var scope = app.Services.CreateScope())
 {
-    var context = scope.ServiceProvider.GetRequiredService<SqLiteDbContext>();
-    DbInitializer.Seed(context);
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<SqLiteDbContext>();
+    var userManager = services.GetRequiredService<UserManager<MyIdentityUserModel>>();
+    DbInitializer.Seed(context, userManager);
 }
+
 
 
 // Configure the HTTP request pipeline.

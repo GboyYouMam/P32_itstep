@@ -14,6 +14,10 @@ public class TagEntity
     [StringLength(50, MinimumLength = 3, ErrorMessage = "Tag name cannot exceed 50 characters.")]
     public string Name { get; set; }
     
+    public string UserId { get; set; }  // Foreign Key
+    public MyIdentityUserModel User { get; set; } // Navigation property
+
+    
     public ICollection<NoteEntity> Notes { get; set; } = new List<NoteEntity>();
     
     public string GetNameById(int id)

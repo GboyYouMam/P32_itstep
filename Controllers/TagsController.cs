@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,19 +13,42 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers;
 
+[Authorize]
 public class TagsController : Controller
 {
     private readonly SqLiteDbContext _context;
+    private readonly UserManager<MyIdentityUserModel> _userManager;
 
-    public TagsController(SqLiteDbContext context)
+    public TagsController(SqLiteDbContext context, UserManager<MyIdentityUserModel> userManager)
     {
+        _userManager = userManager;
         _context = context;
+    }
+    
+    public async Task<List<TagEntity>> GetAllTagsAsync()
+    {
+        return await _context.Tags.ToListAsync();
+    }
+
+    public async Task<List<TagEntity>> GetUserTagsWithNotesAsync()
+    {
+        var userId = _userManager.GetUserId(User);
+        var allTags = await _context.Tags.Include(t => t.Notes).ToListAsync();
+        return allTags.Where(t => t.UserId == userId).ToList();
+    }
+    
+    public async Task<List<TagEntity>> GetUserTagsAsync()
+    {
+        var userId = _userManager.GetUserId(User);
+        var allTags = await _context.Tags.ToListAsync();
+        return allTags.Where(t => t.UserId == userId).ToList();
     }
 
     // GET: Tags
     public async Task<IActionResult> Index()
     {
-        var tags = await _context.Tags.Include(t => t.Notes).ToListAsync();
+        var userId = _userManager.GetUserId(User);
+        var tags = await GetUserTagsWithNotesAsync();
         var viewModel = tags.Select(t => Mappers.TagMapper.MapToViewModel(t)).ToList();
         return View(viewModel);
     }
@@ -70,6 +95,8 @@ public class TagsController : Controller
         {
             return NotFound();
         }
+        var user = _context.Users.FirstOrDefault(u => u.Id == _userManager.GetUserId(User));
+        user.Tags.Remove(tag);
         _context.Tags.Remove(tag);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
@@ -92,6 +119,8 @@ public class TagsController : Controller
                 Name = tagVM.Name
             };
             _context.Tags.Add(tagEntity);
+            var user = await _userManager.GetUserAsync(User);
+            user.Tags.Add(tagEntity);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
@@ -147,6 +176,8 @@ public class TagsController : Controller
     
     public async Task<bool> TagExistsAsync(int id)
     {
-        return await _context.Tags.AnyAsync(e => e.Id == id);
+        return await _context.Users
+            .Include(u => u.Tags)
+            .AnyAsync(u => u.Tags.Any(t => t.Id == id));;
     }
 }

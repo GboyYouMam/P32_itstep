@@ -31,6 +31,20 @@ public class NoteMapper
         };
     }
     
+    public static NoteEntity MapToEntity(NoteViewModel model, IEnumerable<TagEntity> tags, string userId)
+    {
+        if (model == null) throw new ArgumentNullException(nameof(model));
+
+        return new NoteEntity
+        {
+            Id = model.Id,
+            UserId = userId,
+            Title = model.Title,
+            Content = model.Content,
+            Tags = tags.Where(tag => model.TagsId.Contains(tag.Id)).ToList(),
+        };
+    }
+    
     public static NoteViewModel MapToViewModel(NoteEntity entity)
     {
         if (entity == null) throw new ArgumentNullException(nameof(entity));
