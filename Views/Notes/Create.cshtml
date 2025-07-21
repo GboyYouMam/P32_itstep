@@ -1,33 +1,33 @@
-﻿@using System.ComponentModel.DataAnnotations
-@model WebApplication1.Models.NoteViewModel
+﻿@model WebApplication1.Models.NoteViewModel
 @{
     ViewData["Title"] = "Create Note";
 }
 
-<h2>Create Note</h2>
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" method="post">
-            <div>
-                <label asp-for="Title">Title</label><br/>
-                <input asp-for="Title" /><br/>
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div>
-                <label asp-for="Content">Content</label><br/>
-                <textarea asp-for="Content" rows="5"></textarea><br/>
-                <span asp-validation-for="Content" class="text-danger"></span>
-            </div>
-            <div>
-                <label asp-for="TagsId"></label><br/>
-                <select asp-for="TagsId" asp-items="ViewBag.Tags" multiple="multiple" class="form-control"></select>
-                <span asp-validation-for="TagsId" class="text-danger"></span>
-            </div>
-            <button type="submit">Create Note</button>
-        </form>
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h3>Create a New Note</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Content" class="form-label"></label>
+                    <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="TagsId" class="form-label">Tags</label>
+                    <select asp-for="TagsId" asp-items="ViewBag.Tags" multiple class="form-select"></select>
+                    <span asp-validation-for="TagsId" class="text-danger"></span>
+                </div>
+                <button type="submit" class="btn btn-success">Create</button>
+                <a asp-action="Index" class="btn btn-link">Back to Notes</a>
+            </form>
+        </div>
     </div>
-</div>
-<div>
-    <a asp-action="Index">Back to Notes</a>
 </div>

@@ -2,7 +2,27 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Welcome to the Note Feature</h1>
+        <p class="lead">This is a simple note-taking application built with ASP.NET Core.</p>
+        <p>Use the navigation bar to explore the features.</p>
+    </div>
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="alert alert-warning text-center mb-5">
+            You must be authorized to take notes.
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm mb-5">
+            <div class="card-body text-center">
+                <p class="mb-3">Feel free to create, edit, and manage your notes.</p>
+                <a class="btn btn-primary me-2" asp-area="" asp-controller="Notes" asp-action="Index">Manage Notes</a>
+                <a class="btn btn-outline-secondary" asp-area="" asp-controller="Tags" asp-action="Index">Manage Tags</a>
+            </div>
+        </div>
+    }
 </div>

@@ -1,16 +1,16 @@
-﻿@using WebApplication1.Controllers
-@using WebApplication1.Models
-@model IEnumerable<WebApplication1.Models.NoteViewModel>
+﻿@model IEnumerable<WebApplication1.Models.NoteViewModel>
 
-<div>
-    <h2>Notes</h2>
-    <a asp-action="Create">Create new!</a>
-    
-    <table class="table">
-        <thead>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Your Notes</h2>
+        <a asp-action="Create" class="btn btn-success">+ New Note</a>
+    </div>
+
+    <table class="table table-hover shadow-sm">
+        <thead class="table-light">
         <tr>
             <th>Title</th>
-            <th></th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -18,8 +18,9 @@
         {
             <tr>
                 <td>@note.Title</td>
-                
-                <td><a asp-action="Details" asp-route-id="@note.Id">Detailed</a></td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@note.Id" class="btn btn-sm btn-outline-primary">View</a>
+                </td>
             </tr>
         }
         </tbody>

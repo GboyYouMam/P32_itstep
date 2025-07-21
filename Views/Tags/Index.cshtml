@@ -4,27 +4,31 @@
     ViewData["Title"] = "Tags";
 }
 
-<div>
-    <h2>Tags</h2>
-    <a asp-action="Create">Create New!</a>
-    
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Name of Tag</th>
-            <th>Count of use</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach (var tag in Model)
-        {
-            <tr>
-                <td>@tag.Name</td>
-                <td>@tag.NotesId.Count</td>
-                <td><a asp-action="Details" asp-route-id="@tag.Id">Details</a></td>
-            </tr>
-        }
-        </tbody>
-    </table>
+<div class="d-flex justify-content-between align-items-center mb-4 mt-5">
+    <h2 class="mb-0">📌 Tags Overview</h2>
+    <a asp-action="Create" class="btn btn-success">+ Create Tag</a>
 </div>
+
+<table class="table table-hover table-striped border rounded shadow">
+    <thead class="table-dark">
+    <tr>
+        <th>Name</th>
+        <th>Used In Notes</th>
+        <th class="text-end">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var tag in Model)
+    {
+        <tr>
+            <td class="align-middle">@tag.Name</td>
+            <td class="align-middle">@tag.NotesId.Count</td>
+            <td class="text-end">
+                <a asp-action="Details" asp-route-id="@tag.Id" class="btn btn-sm btn-outline-primary me-1">Details</a>
+                <a asp-action="Edit" asp-route-id="@tag.Id" class="btn btn-sm btn-outline-warning me-1">Edit</a>
+                <a asp-action="Delete" asp-route-id="@tag.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

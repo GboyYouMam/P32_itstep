@@ -4,20 +4,18 @@
     ViewData["Title"] = "Edit Tag";
 }
 
-<h2>Editing</h2>
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit" method="post">
-            <div>
-                <label asp-for="Name">Name</label><br/>
-                <input asp-for="Name" /><br/>
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <button type="submit">Edit Tag</button>
-        </form>
-    </div>
+<div class="d-flex justify-content-between align-items-center mb-4 mt-5">
+    <h2 class="mb-0">✏️ Edit Tag</h2>
+    <a asp-action="Index" class="btn btn-outline-secondary">Back to Tags</a>
 </div>
-<div>
-    <a asp-action="Index">Back to Tags</a>
+
+<div class="card shadow-sm p-4 col-md-5">
+    <form asp-action="Edit" method="post" novalidate>
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-warning">Save Changes</button>
+    </form>
 </div>
