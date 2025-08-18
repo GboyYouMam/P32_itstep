@@ -30,10 +30,12 @@ public class TagsController : Controller
         return await _context.Tags.ToListAsync();
     }
 
-    public async Task<List<TagEntity>> GetUserTagsWithNotesAsync()
+    public async Task<List<TagEntity>> GetUserTagsWithNotesAsync([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
         var userId = _userManager.GetUserId(User);
-        var allTags = await _context.Tags.Include(t => t.Notes).ToListAsync();
+        var allTags = await _context.Tags
+            .Include(t => t.Notes)
+            .ToListAsync();
         return allTags.Where(t => t.UserId == userId).ToList();
     }
     
@@ -45,11 +47,31 @@ public class TagsController : Controller
     }
 
     // GET: Tags
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
+        if (page < 1) page = 1;
+        if (pageSize < 1) pageSize = 10;
+        
         var userId = _userManager.GetUserId(User);
-        var tags = await GetUserTagsWithNotesAsync();
+        
+        var totalItems = await _context.Tags
+            .Where(t => t.UserId == userId)
+            .CountAsync();
+            
+        var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+        
+        var tags = await _context.Tags
+            .Include(t => t.Notes)
+            .Where(t => t.UserId == userId)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+        
         var viewModel = tags.Select(t => Mappers.TagMapper.MapToViewModel(t)).ToList();
+        
+        ViewBag.CurrentPage = page;
+        ViewBag.TotalPages = totalPages;
+        
         return View(viewModel);
     }
 
@@ -179,5 +201,10 @@ public class TagsController : Controller
         return await _context.Users
             .Include(u => u.Tags)
             .AnyAsync(u => u.Tags.Any(t => t.Id == id));;
+    }
+    
+    public async Task<List<TagEntity>> GetTagByNameAsync(string name)
+    {
+        return await _context.Tags.Where(t => t.Name == name).ToListAsync();
     }
 }

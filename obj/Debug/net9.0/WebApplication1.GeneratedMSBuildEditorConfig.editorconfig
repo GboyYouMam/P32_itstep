@@ -17,109 +17,109 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApplication1
 build_property.RootNamespace = WebApplication1
-build_property.ProjectDir = C:\Users\kozah\RiderProjects\P32_itstep\
+build_property.ProjectDir = D:\mainfolder\trash\copyOfStudentMaterials\dotNetWeb\notes-proj\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\kozah\RiderProjects\P32_itstep
+build_property.MSBuildProjectDirectory = D:\mainfolder\trash\copyOfStudentMaterials\dotNetWeb\notes-proj
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Areas/Identity/Pages/Account/Login.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Home/Index.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Home/Privacy.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Notes/Create.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Notes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Notes/Delete.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Notes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Notes/Details.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Notes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Notes/Edit.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Notes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Notes/Index.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Notes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Shared/Error.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Shared/_LoginPartial.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Tags/Create.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Tags/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFnc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Tags/Delete.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Tags/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFnc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Tags/Details.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Tags/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFnc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Tags/Edit.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Tags/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFnc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Tags/Index.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Tags/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFnc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/_ViewImports.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/_ViewStart.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/kozah/RiderProjects/P32_itstep/Views/Shared/_Layout.cshtml]
+[D:/mainfolder/trash/copyOfStudentMaterials/dotNetWeb/notes-proj/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-bddmc6yalx

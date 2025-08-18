@@ -26,13 +26,30 @@ public class NotesController : Controller
     
     // GET: Notes
     [HttpGet]
-    public IActionResult Index()
+    public async Task<IActionResult> Index([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
     {
+        if (page < 1) page = 1;
+        if (pageSize < 1) pageSize = 10;
+        
         var userId = _userManager.GetUserId(User);
+        
+        var totalItems = await _context.Notes
+            .Where(n => n.UserId == userId)
+            .CountAsync();
+            
+        var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+        
         var notes = _context.Notes
             .Where(n => n.UserId == userId)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .ToList();
+
         var viewModels = notes.Select(n => NoteMapper.MapToViewModel(n)).ToList();
+        
+        ViewBag.CurrentPage = page;
+        ViewBag.TotalPages = totalPages;
+        
         return View(viewModels);
     }
     
@@ -227,5 +244,13 @@ public class NotesController : Controller
         _context.Notes.Remove(note);
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
+    }
+    
+    public async Task<List<NoteEntity>> GetNoteByNameOrDeskAsync(string nameOrDesc)
+    {
+        var userId = _userManager.GetUserId(User);
+        return await _context.Notes
+            .Where(n => n.UserId == userId && (n.Title.Contains(nameOrDesc) || n.Content.Contains(nameOrDesc)))
+            .ToListAsync();
     }
 }
