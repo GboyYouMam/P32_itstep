@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\mainfolder\\trash\\copyOfStudentMaterials\\dotNetWeb\\notes-proj\\WebApplication1.csproj": {}
+    "C:\\Users\\Захар\\RiderProjects\\P32_itstep\\WebApplication1.csproj": {}
   },
   "projects": {
-    "D:\\mainfolder\\trash\\copyOfStudentMaterials\\dotNetWeb\\notes-proj\\WebApplication1.csproj": {
+    "C:\\Users\\Захар\\RiderProjects\\P32_itstep\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\mainfolder\\trash\\copyOfStudentMaterials\\dotNetWeb\\notes-proj\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\Захар\\RiderProjects\\P32_itstep\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "D:\\mainfolder\\trash\\copyOfStudentMaterials\\dotNetWeb\\notes-proj\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\KoT\\.nuget\\packages\\",
-        "outputPath": "D:\\mainfolder\\trash\\copyOfStudentMaterials\\dotNetWeb\\notes-proj\\obj\\",
+        "projectPath": "C:\\Users\\Захар\\RiderProjects\\P32_itstep\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\Захар\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Захар\\RiderProjects\\P32_itstep\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\KoT\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Захар\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -92,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
